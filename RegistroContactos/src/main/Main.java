@@ -10,8 +10,10 @@ import ui.MainFrame;
  *
  * @author pame
  */
+// clase principal que inicia la aplicacion
 public class Main {
     public static void main(String[] args) {
+        // iniciar ventana en el hilo de swing
         javax.swing.SwingUtilities.invokeLater(() -> {
             new MainFrame().setVisible(true);
         });

@@ -12,27 +12,32 @@ import persistencia.ContactoDAO;
  *
  * @author pame
  */
+// clase para manejar la logica de negocio
 public class ContactoServicio {
-    private final ContactoDAO dao = new ContactoDAO();
+    private final ContactoDAO dao = new ContactoDAO(); // acceso a la "base de datos"
 
+    // metodo para agregar contacto con validacion
     public Contacto agregarContacto(String nombre, String telefono, String correo) throws Exception {
         if (nombre == null || nombre.isBlank()) {
-            throw new Exception("El nombre no puede estar vacío");
+            throw new Exception("el nombre no puede estar vacio");
         }
         if (telefono == null || telefono.isBlank()) {
-            throw new Exception("El teléfono no puede estar vacío");
+            throw new Exception("el telefono no puede estar vacio");
         }
         return dao.agregar(nombre, telefono, correo);
     }
 
+    // metodo para obtener lista de contactos
     public List<Contacto> listarContactos() {
         return dao.obtenerTodos();
     }
 
+    // metodo para eliminar contacto por id
     public boolean eliminarContacto(int id) {
         return dao.eliminar(id);
     }
 
+    // metodo para actualizar un contacto
     public boolean actualizarContacto(Contacto contacto) {
         return dao.actualizar(contacto);
     }
